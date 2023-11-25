@@ -164,7 +164,7 @@ const Step1: React.FC = () => {
                             className="relative border border-black w-full font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center text-gray-400"
                             type="button"
                         >
-                            Pick a Category
+                            Enter a city (example: "Los Angeles, CA")
                             {iconChanged ? (
                                 <svg
                                     className="w-2.5 h-2.5 ms-3 absolute right-5"
@@ -235,7 +235,7 @@ const Step1: React.FC = () => {
 
             <div className='w-full flex flex-col items-center mt-4 mb-12'>
                 <div className='flex justify-end w-10/12'>
-                    <button onClick={() => { window.location.href = "/post-a-job-step-2" }} className={`bg-${taskDescription && selectedCategories.length > 0 ? '[#d4c414]' : 'gray-500'} px-8 py-3 text-white rounded-lg`} disabled={!taskDescription || selectedCategories.length === 0}>Continue</button>
+                    <button onClick={() => { window.location.href = "/post-a-job-step-2" }} className={`bg-${taskTitle && selectedCategories.length > 0 ? 'purple-500' : 'gray-500'} px-8 py-3 text-white rounded-lg`} disabled={!taskTitle || selectedCategories.length === 0}>Continue</button>
                 </div>
             </div>
         </div>
