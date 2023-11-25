@@ -91,7 +91,7 @@ const Step1: React.FC = () => {
         strokeWidth: 2,
     };
 
-    const category = ["Home repairs", "Home cleaning", "Furniture repairs", "Garden work", "Errands"];
+    const category = ["Los Angeles, CA", "Miami, FL", "New York City, NY", "Seattle, WA", "Ottawa, ON"];
 
     const removeCategory = (indexToRemove: number) => {
         const updatedCategories = selectedCategories.filter((_, index) => index !== indexToRemove);
