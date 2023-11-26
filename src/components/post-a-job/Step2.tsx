@@ -71,7 +71,7 @@ const Step2: React.FC = () => {
             <div className='w-full flex flex-col items-center'>
                 <div className='bg-white w-10/12 p-8 mt-8 rounded-lg'>
                     <h1 className='text-2xl font-bold'>Disclaimer</h1>
-                    <p className='mt-1 text-lg'>*User PIN is generated when activating a plan through the <span className='text-purple- underline'>Agency Rocketship</span> Discord community.</p>
+                    <p className='mt-1 text-lg'>*User PIN is generated when activating a plan through the <span className='text-purple-500 underline'>Agency Rocketship</span> Discord community.</p>
                 </div>
             </div>
 
