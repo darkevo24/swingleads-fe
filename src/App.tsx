@@ -12,7 +12,7 @@ const App: React.FC = () => {
     <Router>
       <div className="flex flex-col min-h-screen">
         <Routes>
-          <Route path="/post-a-job-step-1" element={<Step1 />} />
+          <Route path="/" element={<Step1 />} />
           <Route path="/post-a-job-step-2" element={<Step2 />} />
           <Route path="/post-a-job-step-3" element={<Step3 />} />
         </Routes>
