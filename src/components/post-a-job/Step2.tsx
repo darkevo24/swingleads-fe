@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import Footer from '../Footer';
 import "../../styles/modal.css";
 import ReactModal from 'react-modal';
+import { ToastContainer, toast } from 'react-toastify';
+import axios from 'axios';
+import 'react-toastify/dist/ReactToastify.css';
 
 const customStyles = {
     content: {
@@ -20,16 +23,26 @@ const customStyles = {
 const Step2: React.FC = () => {
     const [pin, setPin] = useState('');
 
-    // useEffect(() => {
-    //     const taskDescription = sessionStorage.getItem('taskDescription');
-    //     if (!taskDescription) {
-    //         window.location.href = '/post-a-job-step-1';
-    //     }
-    // });
-
-    const handlePinChange = (event: any) => {
+    const handlePinChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setPin(event.target.value);
     };
+
+    const handleContinue = async () => {
+        try {
+            const response = await axios.post('http://127.0.0.1:5000/check_pin', { pin });
+
+            if (response.data.message === "PIN is valid") {
+                window.location.href = "/post-a-job-step-3"; // Redirect to the next step
+            }
+            else {
+                toast.error(response.data.message); // Display error toast
+            }
+
+        } catch (err: any) {
+            toast.error(err.response.data.message); // Display error toast
+        }
+    };
+
 
 
     const circleStyle = {
@@ -78,15 +91,10 @@ const Step2: React.FC = () => {
             <div className='flex items-center justify-center w-full mt-4 mb-12'>
                 <div className='flex justify-end w-10/12 items-center'>
                     <p className='text-lg mr-10'>Haven't received your code? <span className='text-purple-500 underline'>Open ticket on Discord</span> </p>
-                    <button onClick={() => { window.location.href = "/post-a-job-step-2" }} className={`bg-${pin ? 'purple-500' : 'gray-500'} px-8 py-3 text-white rounded-lg`} disabled={!pin}>Continue</button>
+                    <button onClick={handleContinue} className={`bg-${pin ? 'purple-500' : 'gray-500'} px-8 py-3 text-white rounded-lg`} disabled={!pin}>Continue</button>
                 </div>
             </div>
-
-            {/* <div className='w-full flex flex-col items-center mt-4 mb-12'>
-                <div className='flex justify-end w-10/12'>
-                    <button onClick={() => { window.location.href = "/post-a-job-step-2" }} className={`bg-${taskTitle && selectedCategories.length > 0 ? 'purple-500' : 'gray-500'} px-8 py-3 text-white rounded-lg`} disabled={!taskTitle || selectedCategories.length === 0}>Continue</button>
-                </div>
-            </div> */}
+            <ToastContainer />
         </div>
     );
 };

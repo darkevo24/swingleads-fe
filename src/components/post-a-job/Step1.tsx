@@ -50,7 +50,7 @@ const Step1: React.FC = () => {
         sessionStorage.setItem('selectedCategories', JSON.stringify(selectedCategories));
         sessionStorage.setItem('taskTitle', taskTitle);
 
-    }, [taskDescription, selectedCategories]);
+    }, [taskDescription, selectedCategories, taskTitle]);
 
     // Inside the PostAJob component
     // Function to handle textarea input
