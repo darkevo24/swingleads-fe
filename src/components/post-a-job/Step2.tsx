@@ -56,7 +56,7 @@ const Step2: React.FC = () => {
         strokeWidth: 2,
     };
     return (
-        <div className='w-full bg-gray-100'>
+        <div className='w-full bg-gray-100 min-h-screen'>
             <div className='w-full bg-white flex items-center flex-col md:flex-row py-8 px-8'>
                 <img onClick={() => { window.location.href = "/" }} src={require('../../logo/SwingLeads.png')} alt='logo' width={230} className='absolute cursor-pointer' />
                 <div className='flex items-center justify-center w-full text-white md:mt-0 mt-20'>
