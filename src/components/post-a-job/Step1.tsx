@@ -39,7 +39,7 @@ const Step1: React.FC = () => {
 
     const handleContinue = async () => {
         try {
-            const response = await axios.post('http://127.0.0.1:5000/check_pin', { pin });
+            const response = await axios.post('https://swingleads-be.vercel.app/check_pin', { pin });
 
             if (response.data.message === "PIN is valid") {
                 setStep1(false);
@@ -47,9 +47,6 @@ const Step1: React.FC = () => {
                 setStep3(true);
             }
             else {
-                setStep1(false);
-                setStep2(false);
-                setStep3(true);
                 toast.error(response.data.message); // Display error toast
             }
 
